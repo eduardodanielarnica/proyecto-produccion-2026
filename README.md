@@ -24,5 +24,3 @@ Objetivo del curso
 Desarrollar competencias digitales avanzadas y pensamiento crítico, permitiendo que cada grupo pase de la teoría a la toma de decisiones basada en evidencia técnica.
 
 Ante cualquier duda técnica, abran un "Issue" en este mismo repositorio.
-
-¡Esto se ve impecable! Es directo, profesional y no deja lugar a dudas sobre cómo deben proceder tus alumnos. ¿Quieres que revisemos algo más o ya estás listo para subir este contenido al repositorio?
