@@ -13,10 +13,12 @@ graphics.off()
 # Utilizamos ggplot2, el estándar de la industria para visualización en R.
 library(ggplot2)
 
-# 3. CARGA DEL DATASET
-# Se lee el archivo desde la ruta organizada.
-# Asegúrate de establecer tu directorio de trabajo en la carpeta raíz del proyecto.
-datos <- read.csv("data/datos_produccion_2026.csv", stringsAsFactors = FALSE)
+# 3. CARGA DEL DATASET CORREGIDA
+# Forzamos la detección del separador. Si tu archivo usa punto y coma, 
+# R lo detectará correctamente con 'sep = ";"'
+datos <- read.csv("data/datos_produccion_2026.csv", stringsAsFactors = FALSE, sep = ";")
+
+# Si el anterior sigue dando error, prueba cambiando el sep a "," o "\t"
 
 # 4. INSPECCIÓN DE ESTRUCTURA
 # Pasos críticos para entender con qué datos estamos trabajando.
