@@ -1,38 +1,32 @@
 # ==============================================================================
-# Proyecto Integrador: Producción 2026
-# Script: Análisis Descriptivo Inicial
-# Autor: Eduardo Daniel Árnica
+# SCRIPT FINAL Y A PRUEBA DE TODO PARA LA ENTREVISTA
 # ==============================================================================
-
-# 1. LIMPIEZA DEL ENTORNO
-# Se limpia la memoria y se cierran gráficos abiertos para empezar desde cero.
-rm(list = ls())
-graphics.off()
-
-# 2. CARGA DE LIBRERÍAS
-# Utilizamos ggplot2, el estándar de la industria para visualización en R.
 library(ggplot2)
 
-# 3. CARGA DEL DATASET CORREGIDA
-# Forzamos la detección del separador. Si tu archivo usa punto y coma, 
-# R lo detectará correctamente con 'sep = ";"'
-datos <- read.csv("data/datos_produccion_2026.csv", stringsAsFactors = FALSE, sep = ";")
+# 1. CARGA INTERACTIVA
+archivo <- file.choose()
 
-# Si el anterior sigue dando error, prueba cambiando el sep a "," o "\t"
+# 2. CARGA INTELIGENTE (Detecta si el archivo usa ',' o ';')
+# Usamos read.table que permite especificar el separador con mucha precisión
+datos <- read.table(archivo, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 
-# 4. INSPECCIÓN DE ESTRUCTURA
-# Pasos críticos para entender con qué datos estamos trabajando.
-print("Nombre de las columnas:")
-print(colnames(datos))
-print("Resumen estadístico:")
-summary(datos)
+# Si esto no funciona, es porque el separador es ';'
+if(ncol(datos) == 1) {
+  datos <- read.table(archivo, header = TRUE, sep = ";", stringsAsFactors = FALSE)
+}
 
-# 5. VISUALIZACIÓN GRÁFICA (Tarea 1)
-# Creamos un histograma para ver la distribución de los costos de producción.
+# 3. VERIFICACIÓN CRÍTICA
+print("Estructura detectada (debes ver 5 variables):")
+str(datos)
+
+# 4. VISUALIZACIÓN PROFESIONAL
+# Aseguramos que la columna sea numérica antes de graficar
+datos$costo_produccion <- as.numeric(as.character(datos$costo_produccion))
+
 ggplot(data = datos, aes(x = costo_produccion)) +
-  geom_histogram(fill = "steelblue", color = "white", bins = 5) + # Personalización de estética
-  labs(title = "Distribución de Costos de Producción", 
-       subtitle = "Análisis exploratorio inicial - Módulo 1",
-       x = "Costo de Producción (en unidades monetarias)", 
+  geom_histogram(fill = "steelblue", color = "white", bins = 5) +
+  labs(title = "Distribución de Costos de Producción",
+       subtitle = "Análisis exploratorio: Visualización de lotes",
+       x = "Costo de Producción (USD)",
        y = "Frecuencia") +
-  theme_minimal() # Tema limpio para presentación profesional
+  theme_minimal()
