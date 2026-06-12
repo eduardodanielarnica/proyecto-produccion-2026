@@ -1,4 +1,4 @@
-Proyecto Integrador: Producción 2026
+#Proyecto Integrador: Producción 2026
 
 ¡Bienvenidos al entorno de trabajo central de la materia!
 
