@@ -1,6 +1,5 @@
-Aquí tienes el texto integrado y pulido para tu LÉAME.md. He incorporado la sección de los líderes para que la dinámica quede clara desde el primer momento:
-
 Proyecto Integrador: Producción 2026
+
 ¡Bienvenidos al entorno de trabajo central de la materia!
 
 Este repositorio es nuestro centro operativo. Aquí no solo almacenaremos los modelos desarrollados en R, sino que gestionaremos el avance de todos los proyectos de manera profesional y colaborativa.
